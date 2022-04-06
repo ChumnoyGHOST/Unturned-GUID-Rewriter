@@ -22,3 +22,4 @@ for root, dirs, files in os.walk(MainFolder):
             CurrentFile.write(NewData)
             CurrentFile.close()
 print("Total GUIDs rewritten:", Counter)
+input()
