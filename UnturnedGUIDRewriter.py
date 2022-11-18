@@ -12,7 +12,7 @@ for root, dirs, files in os.walk(MainFolder):
             for Encoding in encodings:
                 try:
                     if Encoding != encodings[0]:
-                        print("[Warning] It is recommended to set the encoding to UTF-8 instead of ", Encoding, ": ", FilePath, sep="")
+                        print("[Warning] It is recommended to set the encoding to UTF-8 instead of ", Encoding, ": ", FilePath, sep = '')
                         Warnings += 1
                     CurrentFile = open(FilePath, "r", encoding=Encoding)
                     GoodEncoding = True
@@ -26,9 +26,9 @@ for root, dirs, files in os.walk(MainFolder):
             try:
                 for Line in CurrentFile:
                     if (Line[0:4].lower() == "guid"):
-                        NewGUID = uuid.uuid4().hex
+                        NewGUID = uuid.uuid4().hex.upper()
                         NewData = NewData + "GUID " + NewGUID
-                        print("[Success] Rewrited:", FilePath)
+                        print("[Success] Rewrited - ", NewGUID, ": ", FilePath, sep = '')
                         GUIDsRewritten += 1
                         if (Line[-1:] == "\n"):
                             NewData = NewData + "\n"
